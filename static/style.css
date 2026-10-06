@@ -1,0 +1,650 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top left, #243b70, transparent 35%),
+        radial-gradient(circle at bottom right, #47135e, transparent 35%),
+        #070b16;
+
+    color: white;
+
+    padding: 25px;
+
+}
+
+
+.app {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+}
+
+
+/* HEADER */
+
+header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 5px;
+
+}
+
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+}
+
+
+.logo span {
+
+    color: #00f5d4;
+
+}
+
+
+.status {
+
+    background: rgba(255,255,255,0.07);
+
+    padding: 10px 16px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+}
+
+
+.status-dot {
+
+    display: inline-block;
+
+    width: 8px;
+
+    height: 8px;
+
+    background: #00f5d4;
+
+    border-radius: 50%;
+
+    margin-right: 7px;
+
+}
+
+
+/* HERO */
+
+.hero {
+
+    text-align: center;
+
+    padding: 55px 10px 40px;
+
+}
+
+
+.small-title {
+
+    color: #00f5d4;
+
+    letter-spacing: 4px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.hero h1 {
+
+    font-size: 48px;
+
+    line-height: 1.1;
+
+    margin: 18px 0;
+
+}
+
+
+.hero h1 span {
+
+    color: #00f5d4;
+
+}
+
+
+.subtitle {
+
+    color: #9ca7bd;
+
+    font-size: 16px;
+
+}
+
+
+/* MAIN */
+
+main {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1.3fr;
+
+    gap: 20px;
+
+}
+
+
+/* PANELS */
+
+.record-panel,
+.analysis-panel,
+.transcript {
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 25px;
+
+    padding: 28px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+}
+
+
+.panel-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.panel-title h2 {
+
+    font-size: 19px;
+
+}
+
+
+#timer {
+
+    color: #00f5d4;
+
+    font-family: monospace;
+
+}
+
+
+/* MICROPHONE */
+
+.mic-circle {
+
+    width: 190px;
+
+    height: 190px;
+
+    margin: 35px auto;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        #00f5d4,
+        #3867ff
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    box-shadow:
+        0 0 30px rgba(0,245,212,0.3);
+
+}
+
+
+.mic-ring {
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border: 1px solid rgba(0,245,212,0.4);
+
+    border-radius: 50%;
+
+}
+
+
+.mic-icon {
+
+    font-size: 60px;
+
+}
+
+
+.record-panel > p {
+
+    text-align: center;
+
+    color: #aab4c8;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* BUTTONS */
+
+.record-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+
+button {
+
+    border: none;
+
+    padding: 13px 18px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+#startBtn {
+
+    background: #00f5d4;
+
+    color: #061019;
+
+}
+
+
+#stopBtn {
+
+    background: #252d40;
+
+    color: white;
+
+}
+
+
+/* UPLOAD */
+
+.upload {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+}
+
+
+.upload label {
+
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    border: 1px dashed #65718a;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: #b8c2d5;
+
+}
+
+
+#audioFile {
+
+    display: none;
+
+}
+
+
+/* EMOTION */
+
+.emotion-result {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    background: rgba(255,255,255,0.05);
+
+    border-radius: 18px;
+
+}
+
+
+.emotion-icon {
+
+    font-size: 55px;
+
+}
+
+
+.emotion-result p {
+
+    color: #8995aa;
+
+    font-size: 13px;
+
+}
+
+
+.emotion-result h2 {
+
+    font-size: 30px;
+
+    margin-top: 5px;
+
+}
+
+
+/* CONFIDENCE */
+
+.confidence {
+
+    margin: 25px 0;
+
+}
+
+
+.confidence-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+}
+
+
+.confidence-heading strong {
+
+    color: #00f5d4;
+
+}
+
+
+.progress {
+
+    height: 10px;
+
+    background: #171e2d;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+#progressBar {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #3867ff,
+        #00f5d4
+    );
+
+    transition: 1s;
+
+}
+
+
+/* EMOTION GRID */
+
+.emotion-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+}
+
+
+.emotion-card {
+
+    padding: 17px;
+
+    background: rgba(255,255,255,0.04);
+
+    border-radius: 15px;
+
+}
+
+
+.emotion-card span {
+
+    font-size: 25px;
+
+}
+
+
+.emotion-card p {
+
+    color: #9ba6bb;
+
+    margin-top: 5px;
+
+}
+
+
+.emotion-card b {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #00f5d4;
+
+}
+
+
+/* TRANSCRIPT */
+
+.transcript {
+
+    margin-top: 20px;
+
+}
+
+
+textarea {
+
+    width: 100%;
+
+    height: 120px;
+
+    resize: none;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    font-size: 16px;
+
+    background: #101624;
+
+    color: white;
+
+}
+
+
+.bottom-buttons {
+
+    margin-top: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+#analyzeBtn {
+
+    background: #3867ff;
+
+    color: white;
+
+}
+
+
+#clearBtn {
+
+    background: #242c3d;
+
+    color: white;
+
+}
+
+
+.live {
+
+    font-size: 11px;
+
+    color: #00f5d4;
+
+}
+
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #68748b;
+
+    font-size: 13px;
+
+}
+
+
+/* RECORDING ANIMATION */
+
+.recording {
+
+    animation: pulse 1.2s infinite;
+
+}
+
+
+@keyframes pulse {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+
+    main {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero h1 {
+
+        font-size: 35px;
+
+    }
+
+}

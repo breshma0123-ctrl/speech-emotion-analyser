@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EchoSense - Speech Emotion Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- TOP BAR -->
+
+    <header>
+
+        <div class="logo">
+            <span>◉</span> EchoSense
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            AI Emotion Engine
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <p class="small-title">
+            SPEECH INTELLIGENCE
+        </p>
+
+        <h1>
+            What does your <span>voice</span><br>
+            say about your emotion?
+        </h1>
+
+        <p class="subtitle">
+            Speak naturally and let EchoSense analyze the emotional
+            pattern in your speech.
+        </p>
+
+    </section>
+
+
+    <!-- MAIN AREA -->
+
+    <main>
+
+
+        <!-- LEFT PANEL -->
+
+        <div class="record-panel">
+
+            <div class="panel-title">
+
+                <h2>Voice Capture</h2>
+
+                <span id="timer">00:00</span>
+
+            </div>
+
+
+            <div id="micCircle" class="mic-circle">
+
+                <div class="mic-ring"></div>
+
+                <div class="mic-icon">
+                    🎙️
+                </div>
+
+            </div>
+
+
+            <p id="recordStatus">
+                Ready to listen
+            </p>
+
+
+            <div class="record-buttons">
+
+                <button id="startBtn">
+                    🎙 Start Recording
+                </button>
+
+                <button id="stopBtn">
+                    ■ Stop
+                </button>
+
+            </div>
+
+
+            <div class="upload">
+
+                <label for="audioFile">
+                    📁 Upload Audio
+                </label>
+
+                <input type="file"
+                       id="audioFile"
+                       accept="audio/*">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RIGHT PANEL -->
+
+        <div class="analysis-panel">
+
+            <div class="panel-title">
+
+                <h2>Emotion Analysis</h2>
+
+                <span class="live">LIVE</span>
+
+            </div>
+
+
+            <!-- MAIN EMOTION -->
+
+            <div class="emotion-result">
+
+                <div class="emotion-icon"
+                     id="emotionIcon">
+                    🤔
+                </div>
+
+                <div>
+
+                    <p>Detected Emotion</p>
+
+                    <h2 id="emotion">
+                        Waiting...
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONFIDENCE -->
+
+            <div class="confidence">
+
+                <div class="confidence-heading">
+
+                    <span>Confidence</span>
+
+                    <strong id="confidence">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="progress">
+
+                    <div id="progressBar"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMOTION GRID -->
+
+            <div class="emotion-grid">
+
+                <div class="emotion-card">
+                    <span>😊</span>
+                    <p>Happy</p>
+                    <b id="happy">0%</b>
+                </div>
+
+                <div class="emotion-card">
+                    <span>😢</span>
+                    <p>Sad</p>
+                    <b id="sad">0%</b>
+                </div>
+
+                <div class="emotion-card">
+                    <span>😡</span>
+                    <p>Angry</p>
+                    <b id="angry">0%</b>
+                </div>
+
+                <div class="emotion-card">
+                    <span>😨</span>
+                    <p>Fear</p>
+                    <b id="fear">0%</b>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- TRANSCRIPT -->
+
+    <section class="transcript">
+
+        <div class="panel-title">
+
+            <h2>Speech Transcript</h2>
+
+            <span>TEXT</span>
+
+        </div>
+
+
+        <textarea
+            id="textInput"
+            placeholder="Type something here or use your microphone...">
+        </textarea>
+
+
+        <div class="bottom-buttons">
+
+            <button id="analyzeBtn">
+                ✨ Analyze Emotion
+            </button>
+
+            <button id="clearBtn">
+                ↻ Reset
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        EchoSense • Speech Emotion Analysis System
+
+    </footer>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
